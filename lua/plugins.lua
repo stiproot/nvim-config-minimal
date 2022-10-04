@@ -656,121 +656,121 @@ function M.setup()
       }
     end
 
-    if PLUGINS.coq.enabled then
-      use {
-        "neovim/nvim-lspconfig",
-        opt = true,
-        -- event = "VimEnter",
-        event = { "BufReadPre" },
-        wants = {
-          "nvim-lsp-installer",
-          "lsp_signature.nvim",
-          "coq_nvim",
-          "lua-dev.nvim",
-          "vim-illuminate",
-          "null-ls.nvim",
-          "schemastore.nvim",
-          -- "nvim-lsp-ts-utils",
-          "typescript.nvim",
-        }, -- for coq.nvim
-        config = function()
-          require("config.lsp").setup()
-        end,
-        requires = {
-          "williamboman/nvim-lsp-installer",
-          "ray-x/lsp_signature.nvim",
-          "folke/lua-dev.nvim",
-          "RRethy/vim-illuminate",
-          "jose-elias-alvarez/null-ls.nvim",
-          {
-            "j-hui/fidget.nvim",
-            config = function()
-              require("fidget").setup {}
-            end,
-          },
-          "b0o/schemastore.nvim",
-          -- "jose-elias-alvarez/nvim-lsp-ts-utils",
-          "jose-elias-alvarez/typescript.nvim",
-        },
-      }
-    end
+    -- if PLUGINS.coq.enabled then
+      -- use {
+        -- "neovim/nvim-lspconfig",
+        -- opt = true,
+        -- -- event = "VimEnter",
+        -- event = { "BufReadPre" },
+        -- wants = {
+          -- "nvim-lsp-installer",
+          -- "lsp_signature.nvim",
+          -- "coq_nvim",
+          -- "lua-dev.nvim",
+          -- "vim-illuminate",
+          -- "null-ls.nvim",
+          -- "schemastore.nvim",
+          -- -- "nvim-lsp-ts-utils",
+          -- "typescript.nvim",
+        -- }, -- for coq.nvim
+        -- config = function()
+          -- require("config.lsp").setup()
+        -- end,
+        -- requires = {
+          -- "williamboman/nvim-lsp-installer",
+          -- "ray-x/lsp_signature.nvim",
+          -- "folke/lua-dev.nvim",
+          -- "RRethy/vim-illuminate",
+          -- "jose-elias-alvarez/null-ls.nvim",
+          -- {
+            -- "j-hui/fidget.nvim",
+            -- config = function()
+              -- require("fidget").setup {}
+            -- end,
+          -- },
+          -- "b0o/schemastore.nvim",
+          -- -- "jose-elias-alvarez/nvim-lsp-ts-utils",
+          -- "jose-elias-alvarez/typescript.nvim",
+        -- },
+      -- }
+    -- end
 
     -- trouble.nvim
-    use {
-      "folke/trouble.nvim",
-      wants = "nvim-web-devicons",
-      cmd = { "TroubleToggle", "Trouble" },
-      config = function()
-        require("trouble").setup {
-          use_diagnostic_signs = true,
-        }
-      end,
-    }
+    --use {
+      --"folke/trouble.nvim",
+      --wants = "nvim-web-devicons",
+      --cmd = { "TroubleToggle", "Trouble" },
+      --config = function()
+        --require("trouble").setup {
+          --use_diagnostic_signs = true,
+        --}
+      --end,
+    --}
 
     -- lspsaga.nvim
-    use {
-      "tami5/lspsaga.nvim",
-      cmd = { "Lspsaga" },
-      config = function()
-        require("lspsaga").setup {}
-      end,
-    }
+    --use {
+      --"tami5/lspsaga.nvim",
+      --cmd = { "Lspsaga" },
+      --config = function()
+        --require("lspsaga").setup {}
+      --end,
+    --}
 
     -- renamer.nvim
-    use {
-      "filipdutescu/renamer.nvim",
-      module = { "renamer" },
-      config = function()
-        require("renamer").setup {}
-      end,
-    }
+    --------use {
+      --------"filipdutescu/renamer.nvim",
+      --------module = { "renamer" },
+      --------config = function()
+        --------require("renamer").setup {}
+      --------end,
+    --------}
 
     -- Rust
-    use {
-      "simrat39/rust-tools.nvim",
-      requires = { "nvim-lua/plenary.nvim", "rust-lang/rust.vim" },
-      opt = true,
-      module = "rust-tools",
-      ft = { "rust" },
-      config = function()
-        require("config.rust").setup()
-      end,
-    }
-    use {
-      "saecki/crates.nvim",
-      event = { "BufRead Cargo.toml" },
-      requires = { { "nvim-lua/plenary.nvim" } },
-      config = function()
-        -- local null_ls = require "null-ls"
-        require("crates").setup {
-          null_ls = {
-            enabled = true,
-            name = "crates.nvim",
-          },
-        }
-      end,
-    }
+    --------use {
+      --------"simrat39/rust-tools.nvim",
+      --------requires = { "nvim-lua/plenary.nvim", "rust-lang/rust.vim" },
+      --------opt = true,
+      --------module = "rust-tools",
+      --------ft = { "rust" },
+      --------config = function()
+        --------require("config.rust").setup()
+      --------end,
+    --------}
+    --------use {
+      --------"saecki/crates.nvim",
+      --------event = { "BufRead Cargo.toml" },
+      --------requires = { { "nvim-lua/plenary.nvim" } },
+      --------config = function()
+        ---------- local null_ls = require "null-ls"
+        --------require("crates").setup {
+          --------null_ls = {
+            --------enabled = true,
+            --------name = "crates.nvim",
+          --------},
+        --------}
+      --------end,
+    --------}
 
     -- Go
-    use {
-      "ray-x/go.nvim",
-      ft = { "go" },
-      config = function()
-        require("go").setup()
-      end,
-    }
+    --------use {
+      --------"ray-x/go.nvim",
+      --------ft = { "go" },
+      --------config = function()
+        --------require("go").setup()
+      --------end,
+    --------}
 
     -- Java
-    use { "mfussenegger/nvim-jdtls", ft = { "java" } }
+    --------use { "mfussenegger/nvim-jdtls", ft = { "java" } }
 
     -- Flutter
-    use {
-      "akinsho/flutter-tools.nvim",
-      requires = { "nvim-lua/plenary.nvim" },
-      config = function()
-        require("config.flutter").setup()
-      end,
-    }
+    --use {
+      --"akinsho/flutter-tools.nvim",
+      --requires = { "nvim-lua/plenary.nvim" },
+      --config = function()
+        --require("config.flutter").setup()
+      --end,
+    --}
 
     -- Terminal
     use {
@@ -783,66 +783,66 @@ function M.setup()
     }
 
     -- Debugging
-    use {
-      "mfussenegger/nvim-dap",
-      opt = true,
-      -- event = "BufReadPre",
-      keys = { [[<leader>d]] },
-      module = { "dap" },
-      wants = { "nvim-dap-virtual-text", "DAPInstall.nvim", "nvim-dap-ui", "nvim-dap-python", "which-key.nvim" },
-      requires = {
-        "alpha2phi/DAPInstall.nvim",
-        -- { "Pocco81/dap-buddy.nvim", branch = "dev" },
-        "theHamsta/nvim-dap-virtual-text",
-        "rcarriga/nvim-dap-ui",
-        "mfussenegger/nvim-dap-python",
-        "nvim-telescope/telescope-dap.nvim",
-        { "leoluz/nvim-dap-go", module = "dap-go" },
-        { "jbyuki/one-small-step-for-vimkind", module = "osv" },
-      },
-      config = function()
-        require("config.dap").setup()
-      end,
-      disable = not PLUGINS.nvim_dap,
-    }
+    --use {
+      --"mfussenegger/nvim-dap",
+      --opt = true,
+      ---- event = "BufReadPre",
+      --keys = { [[<leader>d]] },
+      --module = { "dap" },
+      --wants = { "nvim-dap-virtual-text", "DAPInstall.nvim", "nvim-dap-ui", "nvim-dap-python", "which-key.nvim" },
+      --requires = {
+        --"alpha2phi/DAPInstall.nvim",
+        ---- { "Pocco81/dap-buddy.nvim", branch = "dev" },
+        --"theHamsta/nvim-dap-virtual-text",
+        --"rcarriga/nvim-dap-ui",
+        --"mfussenegger/nvim-dap-python",
+        --"nvim-telescope/telescope-dap.nvim",
+        --{ "leoluz/nvim-dap-go", module = "dap-go" },
+        --{ "jbyuki/one-small-step-for-vimkind", module = "osv" },
+      --},
+      --config = function()
+        --require("config.dap").setup()
+      --end,
+      --disable = not PLUGINS.nvim_dap,
+    --}
 
     -- vimspector
-    use {
-      "puremourning/vimspector",
-      cmd = { "VimspectorInstall", "VimspectorUpdate" },
-      fn = { "vimspector#Launch()", "vimspector#ToggleBreakpoint", "vimspector#Continue" },
-      config = function()
-        require("config.vimspector").setup()
-      end,
-    }
+    --use {
+      --"puremourning/vimspector",
+      --cmd = { "VimspectorInstall", "VimspectorUpdate" },
+      --fn = { "vimspector#Launch()", "vimspector#ToggleBreakpoint", "vimspector#Continue" },
+      --config = function()
+        --require("config.vimspector").setup()
+      --end,
+    --}
 
     -- Test
-    use {
-      "rcarriga/vim-ultest",
-      requires = { "vim-test/vim-test" },
-      opt = true,
-      keys = { "<leader>t" },
-      cmd = {
-        "TestNearest",
-        "TestFile",
-        "TestSuite",
-        "TestLast",
-        "TestVisit",
-        "Ultest",
-        "UltestNearest",
-        "UltestDebug",
-        "UltestLast",
-        "UltestSummary",
-      },
-      module = "ultest",
-      run = ":UpdateRemotePlugins",
-      config = function()
-        require("config.test").setup()
-      end,
-    }
+    --use {
+      --"rcarriga/vim-ultest",
+      --requires = { "vim-test/vim-test" },
+      --opt = true,
+      --keys = { "<leader>t" },
+      --cmd = {
+        --"TestNearest",
+        --"TestFile",
+        --"TestSuite",
+        --"TestLast",
+        --"TestVisit",
+        --"Ultest",
+        --"UltestNearest",
+        --"UltestDebug",
+        --"UltestLast",
+        --"UltestSummary",
+      --},
+      --module = "ultest",
+      --run = ":UpdateRemotePlugins",
+      --config = function()
+        --require("config.test").setup()
+      --end,
+    --}
 
     -- AI completion
-    use { "github/copilot.vim", event = "InsertEnter" }
+    -- use { "github/copilot.vim", event = "InsertEnter" }
 
     -- Legendary
     use {
@@ -857,208 +857,208 @@ function M.setup()
     }
 
     -- Harpoon
-    use {
-      "ThePrimeagen/harpoon",
-      keys = { [[<leader>j]] },
-      module = { "harpoon", "harpoon.cmd-ui", "harpoon.mark", "harpoon.ui", "harpoon.term" },
-      wants = { "telescope.nvim" },
-      config = function()
-        require("config.harpoon").setup()
-      end,
-    }
+    --use {
+      --"ThePrimeagen/harpoon",
+      --keys = { [[<leader>j]] },
+      --module = { "harpoon", "harpoon.cmd-ui", "harpoon.mark", "harpoon.ui", "harpoon.term" },
+      --wants = { "telescope.nvim" },
+      --config = function()
+        --require("config.harpoon").setup()
+      --end,
+    --}
 
     -- Refactoring
-    use {
-      "ThePrimeagen/refactoring.nvim",
-      module = { "refactoring", "telescope" },
-      keys = { [[<leader>r]] },
-      wants = { "telescope.nvim" },
-      config = function()
-        require("config.refactoring").setup()
-      end,
-    }
-    use { "python-rope/ropevim", run = "pip install ropevim", disable = true }
-    use {
-      "kevinhwang91/nvim-bqf",
-      ft = "qf",
-      disable = true,
-      config = function()
-        require("bqf").setup()
-      end,
-    }
-    use { "kevinhwang91/nvim-hlslens", event = "BufReadPre", disable = true }
-    use { "nvim-pack/nvim-spectre", module = "spectre", keys = { "<leader>s" } }
+    --use {
+      --"ThePrimeagen/refactoring.nvim",
+      --module = { "refactoring", "telescope" },
+      --keys = { [[<leader>r]] },
+      --wants = { "telescope.nvim" },
+      --config = function()
+        --require("config.refactoring").setup()
+      --end,
+    --}
+    --use { "python-rope/ropevim", run = "pip install ropevim", disable = true }
+    --use {
+      --"kevinhwang91/nvim-bqf",
+      --ft = "qf",
+      --disable = true,
+      --config = function()
+        --require("bqf").setup()
+      --end,
+    --}
+    --use { "kevinhwang91/nvim-hlslens", event = "BufReadPre", disable = true }
+    --use { "nvim-pack/nvim-spectre", module = "spectre", keys = { "<leader>s" } }
 
     -- Performance
     use { "dstein64/vim-startuptime", cmd = "StartupTime" }
     use { "nathom/filetype.nvim" }
 
     -- Web
-    use {
-      "vuki656/package-info.nvim",
-      opt = true,
-      requires = {
-        "MunifTanjim/nui.nvim",
-      },
-      wants = { "nui.nvim" },
-      module = { "package-info" },
-      ft = { "json" },
-      config = function()
-        require("config.package").setup()
-      end,
-      disable = false,
-    }
-    use {
-      "meain/vim-package-info",
-      ft = { "json" },
-      run = "npm install",
-      disable = true,
-    }
+    --use {
+      --"vuki656/package-info.nvim",
+      --opt = true,
+      --requires = {
+        --"MunifTanjim/nui.nvim",
+      --},
+      --wants = { "nui.nvim" },
+      --module = { "package-info" },
+      --ft = { "json" },
+      --config = function()
+        --require("config.package").setup()
+      --end,
+      --disable = false,
+    --}
+    --use {
+      --"meain/vim-package-info",
+      --ft = { "json" },
+      --run = "npm install",
+      --disable = true,
+    --}
 
     -- Session
-    use {
-      "rmagatti/auto-session",
-      opt = true,
-      cmd = { "SaveSession", "RestoreSession" },
-      requires = { "rmagatti/session-lens" },
-      wants = { "telescope.nvim", "session-lens" },
-      config = function()
-        require("bad_practices").setup()
-      end,
-      disable = false,
-    }
-    use {
-      "jedrzejboczar/possession.nvim",
-      config = function()
-        require("config.possession").setup()
-      end,
-      cmd = { "PossessionSave", "PosessionLoad", "PosessionShow", "PossessionList" },
-      disable = true,
-    }
-    use {
-      "tpope/vim-obsession",
-      cmd = { "Obsess" },
-      config = function()
-        require("config.obsession").setup()
-      end,
-      disable = true,
-    }
+    --use {
+      --"rmagatti/auto-session",
+      --opt = true,
+      --cmd = { "SaveSession", "RestoreSession" },
+      --requires = { "rmagatti/session-lens" },
+      --wants = { "telescope.nvim", "session-lens" },
+      --config = function()
+        --require("bad_practices").setup()
+      --end,
+      --disable = false,
+    --}
+    --use {
+      --"jedrzejboczar/possession.nvim",
+      --config = function()
+        --require("config.possession").setup()
+      --end,
+      --cmd = { "PossessionSave", "PosessionLoad", "PosessionShow", "PossessionList" },
+      --disable = true,
+    --}
+    --use {
+      --"tpope/vim-obsession",
+      --cmd = { "Obsess" },
+      --config = function()
+        --require("config.obsession").setup()
+      --end,
+      --disable = true,
+    --}
 
     -- Practice
-    use {
-      "antonk52/bad-practices.nvim",
-      event = "BufReadPre",
-      config = function()
-        require("bad_practices").setup()
-      end,
-      disable = true,
-    }
+    --use {
+      --"antonk52/bad-practices.nvim",
+      --event = "BufReadPre",
+      --config = function()
+        --require("bad_practices").setup()
+      --end,
+      --disable = true,
+    --}
 
     -- Plugin
-    use {
-      "tpope/vim-scriptease",
-      cmd = {
-        "Messages", --view messages in quickfix list
-        "Verbose", -- view verbose output in preview window.
-        "Time", -- measure how long it takes to run some stuff.
-      },
-      event = "BufReadPre",
-    }
+    --use {
+      --"tpope/vim-scriptease",
+      --cmd = {
+        --"Messages", --view messages in quickfix list
+        --"Verbose", -- view verbose output in preview window.
+        --"Time", -- measure how long it takes to run some stuff.
+      --},
+      --event = "BufReadPre",
+    --}
 
     -- Quickfix
-    use { "romainl/vim-qf", event = "BufReadPre", disable = true }
+    -- use { "romainl/vim-qf", event = "BufReadPre", disable = true }
 
     -- Todo
-    use {
-      "folke/todo-comments.nvim",
-      config = function()
-        require("config.todocomments").setup()
-      end,
-      cmd = { "TodoQuickfix", "TodoTrouble", "TodoTelescope" },
-    }
+    --use {
+      --"folke/todo-comments.nvim",
+      --config = function()
+        --require("config.todocomments").setup()
+      --end,
+      --cmd = { "TodoQuickfix", "TodoTrouble", "TodoTelescope" },
+    --}
 
     -- Diffview
-    use {
-      "sindrets/diffview.nvim",
-      requires = "nvim-lua/plenary.nvim",
-      cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles" },
-    }
+    --use {
+      --"sindrets/diffview.nvim",
+      --requires = "nvim-lua/plenary.nvim",
+      --cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles" },
+    --}
 
     -- Sidebar
-    use {
-      "liuchengxu/vista.vim",
-      cmd = { "Vista" },
-      config = function()
-        vim.g.vista_default_executive = "nvim_lsp"
-      end,
-    }
-    use {
-      "sidebar-nvim/sidebar.nvim",
-      cmd = { "SidebarNvimToggle" },
-      config = function()
-        require("sidebar-nvim").setup { open = false }
-      end,
-    }
+    --use {
+      --"liuchengxu/vista.vim",
+      --cmd = { "Vista" },
+      --config = function()
+        --vim.g.vista_default_executive = "nvim_lsp"
+      --end,
+    --}
+    --use {
+      --"sidebar-nvim/sidebar.nvim",
+      --cmd = { "SidebarNvimToggle" },
+      --config = function()
+        --require("sidebar-nvim").setup { open = false }
+      --end,
+    --}
 
     -- Translation
-    use {
-      "voldikss/vim-translator",
-      cmd = { "Translate", "TranslateV", "TranslateW", "TranslateWV", "TranslateR", "TranslateRV", "TranslateX" },
-      config = function()
-        vim.g.translator_target_lang = "zh"
-        vim.g.translator_history_enable = true
-      end,
-    }
+    --use {
+      --"voldikss/vim-translator",
+      --cmd = { "Translate", "TranslateV", "TranslateW", "TranslateWV", "TranslateR", "TranslateRV", "TranslateX" },
+      --config = function()
+        --vim.g.translator_target_lang = "zh"
+        --vim.g.translator_history_enable = true
+      --end,
+    --}
 
     -- REPL
-    use {
-      "hkupty/iron.nvim",
-      config = function()
-        require("config.iron").setup()
-      end,
-      disable = true,
-    }
+    --use {
+      --"hkupty/iron.nvim",
+      --config = function()
+        --require("config.iron").setup()
+      --end,
+      --disable = true,
+    --}
 
     -- Testing
-    use {
-      "m-demare/attempt.nvim",
-      opt = true,
-      requires = "nvim-lua/plenary.nvim",
-      module = { "attempt" },
-      config = function()
-        require("config.attempt").setup()
-      end,
-      disable = false,
-    }
-    use {
-      "ziontee113/syntax-tree-surfer",
-      opt = true,
-      event = "BufReadPre",
-      module = { "syntax-tree-surfer" },
-      config = function()
-        require("config.syntaxtreesurfer").setup()
-      end,
-      disable = false,
-    }
-    use {
-      "ghillb/cybu.nvim",
-      branch = "main",
-      event = "BufReadPre",
-      config = function()
-        require("config.cybu").setup()
-      end,
-      disable = true,
-    }
-    use { "tversteeg/registers.nvim", disable = true }
-    use {
-      "TaDaa/vimade",
-      cmd = { "VimadeToggle", "VimadeEnable", "VimadeDisable" },
-      disable = false,
-      config = function()
-        vim.g.vimade.fadelevel = 0.7
-        vim.g.vimade.enablesigns = 1
-      end,
-    }
+    --use {
+      --"m-demare/attempt.nvim",
+      --opt = true,
+      --requires = "nvim-lua/plenary.nvim",
+      --module = { "attempt" },
+      --config = function()
+        --require("config.attempt").setup()
+      --end,
+      --disable = false,
+    --}
+    --use {
+      --"ziontee113/syntax-tree-surfer",
+      --opt = true,
+      --event = "BufReadPre",
+      --module = { "syntax-tree-surfer" },
+      --config = function()
+        --require("config.syntaxtreesurfer").setup()
+      --end,
+      --disable = false,
+    --}
+    --use {
+      --"ghillb/cybu.nvim",
+      --branch = "main",
+      --event = "BufReadPre",
+      --config = function()
+        --require("config.cybu").setup()
+      --end,
+      --disable = true,
+    --}
+    --use { "tversteeg/registers.nvim", disable = true }
+    --use {
+      --"TaDaa/vimade",
+      --cmd = { "VimadeToggle", "VimadeEnable", "VimadeDisable" },
+      --disable = false,
+      --config = function()
+        --vim.g.vimade.fadelevel = 0.7
+        --vim.g.vimade.enablesigns = 1
+      --end,
+    --}
     -- https://github.com/WhoIsSethDaniel/toggle-lsp-diagnostics.nvim
     -- https://github.com/rbong/vim-buffest
     -- https://github.com/jamestthompson3/nvim-remote-containers
