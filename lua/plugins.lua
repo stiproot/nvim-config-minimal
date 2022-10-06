@@ -64,14 +64,14 @@ function M.setup()
       end,
       disable = true,
     }
-    use {
-      "sainnhe/everforest",
-      config = function()
-        vim.g.everforest_better_performance = 1
-        vim.cmd "colorscheme everforest"
-      end,
-      disable = false,
-    }
+    --use {
+      --"sainnhe/everforest",
+      --config = function()
+        --vim.g.everforest_better_performance = 1
+        --vim.cmd "colorscheme everforest"
+      --end,
+      --disable = false,
+    --}
     use {
       "sainnhe/gruvbox-material",
       config = function()
@@ -109,29 +109,12 @@ function M.setup()
     -- Better Netrw
     use { "tpope/vim-vinegar" }
 
-    -- Git
-    -- use {
-      -- "TimUntersberger/neogit",
-      -- cmd = "Neogit",
-      -- config = function()
-        -- require("config.neogit").setup()
-      -- end,
-    -- }
-    -- use {
-      -- "lewis6991/gitsigns.nvim",
-      -- event = "BufReadPre",
-      -- wants = "plenary.nvim",
-      -- requires = { "nvim-lua/plenary.nvim" },
-      -- config = function()
-        -- require("config.gitsigns").setup()
-      -- end,
-    -- }
-    use {
-      "tpope/vim-fugitive",
-      cmd = { "Git", "GBrowse", "Gdiffsplit", "Gvdiffsplit" },
-      requires = { "tpope/vim-rhubarb" },
-      -- wants = { "vim-rhubarb" },
-    }
+    --use {
+      --"tpope/vim-fugitive",
+      --cmd = { "Git", "GBrowse", "Gdiffsplit", "Gvdiffsplit" },
+      --requires = { "tpope/vim-rhubarb" },
+      ---- wants = { "vim-rhubarb" },
+    --}
     -- use {
       -- "ruifm/gitlinker.nvim",
       -- requires = "nvim-lua/plenary.nvim",
@@ -171,13 +154,13 @@ function M.setup()
     -- }
 
     -- WhichKey
-    use {
-      "folke/which-key.nvim",
-      event = "VimEnter",
-      config = function()
-        require("config.whichkey").setup()
-      end,
-    }
+    --use {
+      --"folke/which-key.nvim",
+      --event = "VimEnter",
+      --config = function()
+        --require("config.whichkey").setup()
+      --end,
+    --}
 
     -- IndentLine
     -- use {
@@ -198,33 +181,33 @@ function M.setup()
     }
 
     -- Better Comment
-    use {
-      "numToStr/Comment.nvim",
-      keys = { "gc", "gcc", "gbc" },
-      config = function()
-        require("config.comment").setup()
-      end,
-    }
+    --use {
+      --"numToStr/Comment.nvim",
+      --keys = { "gc", "gcc", "gbc" },
+      --config = function()
+        --require("config.comment").setup()
+      --end,
+    --}
 
     -- Better surround
     use { "tpope/vim-surround", event = "BufReadPre" }
-    use {
-      "Matt-A-Bennett/vim-surround-funk",
-      event = "BufReadPre",
-      config = function()
-        require("config.surroundfunk").setup()
-      end,
-      disable = true,
-    }
+    --use {
+      --"Matt-A-Bennett/vim-surround-funk",
+      --event = "BufReadPre",
+      --config = function()
+        --require("config.surroundfunk").setup()
+      --end,
+      --disable = true,
+    --}
 
     -- Motions
-    use { "andymass/vim-matchup", event = "CursorMoved" }
-    use { "wellle/targets.vim", event = "CursorMoved" }
-    use { "unblevable/quick-scope", event = "CursorMoved", disable = false }
-    use { "chaoren/vim-wordmotion", opt = true, fn = { "<Plug>WordMotion_w" } }
+    --use { "andymass/vim-matchup", event = "CursorMoved" }
+    --use { "wellle/targets.vim", event = "CursorMoved" }
+    --use { "unblevable/quick-scope", event = "CursorMoved", disable = false }
+    --use { "chaoren/vim-wordmotion", opt = true, fn = { "<Plug>WordMotion_w" } }
 
     -- Buffer
-    use { "kazhala/close-buffers.nvim", cmd = { "BDelete", "BWipeout" } }
+    --use { "kazhala/close-buffers.nvim", cmd = { "BDelete", "BWipeout" } }
     -- use {
       -- "matbme/JABS.nvim",
       -- cmd = "JABSOpen",
@@ -242,24 +225,24 @@ function M.setup()
     -- }
 
     -- IDE
-    use {
-      "antoinemadec/FixCursorHold.nvim",
-      event = "BufReadPre",
-      config = function()
-        vim.g.cursorhold_updatetime = 100
-      end,
-    }
-    use {
-      "max397574/better-escape.nvim",
-      event = { "InsertEnter" },
-      config = function()
-        require("better_escape").setup {
-          mapping = { "jk" },
-          timeout = vim.o.timeoutlen,
-          keys = "<ESC>",
-        }
-      end,
-    }
+    --use {
+      --"antoinemadec/FixCursorHold.nvim",
+      --event = "BufReadPre",
+      --config = function()
+        --vim.g.cursorhold_updatetime = 100
+      --end,
+    --}
+    --use {
+      --"max397574/better-escape.nvim",
+      --event = { "InsertEnter" },
+      --config = function()
+        --require("better_escape").setup {
+          --mapping = { "jk" },
+          --timeout = vim.o.timeoutlen,
+          --keys = "<ESC>",
+        --}
+      --end,
+    --}
     use {
       "karb94/neoscroll.nvim",
       event = "BufReadPre",
@@ -293,14 +276,14 @@ function M.setup()
     -- }
 
     -- Jumps
-    use {
-      "phaazon/hop.nvim",
-      cmd = { "HopWord", "HopChar1" },
-      config = function()
-        require("hop").setup {}
-      end,
-      disable = true,
-    }
+    --use {
+      --"phaazon/hop.nvim",
+      --cmd = { "HopWord", "HopChar1" },
+      --config = function()
+        --require("hop").setup {}
+      --end,
+      --disable = true,
+    --}
     -- use {
       -- "ggandor/leap.nvim",
       -- keys = { "s", "S", "f", "F", "t", "T" },
@@ -330,16 +313,16 @@ function M.setup()
     -- }
 
     -- Markdown
-    use {
-      "iamcco/markdown-preview.nvim",
-      opt = true,
-      run = function()
-        vim.fn["mkdp#util#install"]()
-      end,
-      ft = "markdown",
-      cmd = { "MarkdownPreview" },
-      requires = { "zhaozg/vim-diagram", "aklt/plantuml-syntax" },
-    }
+    --use {
+      --"iamcco/markdown-preview.nvim",
+      --opt = true,
+      --run = function()
+        --vim.fn["mkdp#util#install"]()
+      --end,
+      --ft = "markdown",
+      --cmd = { "MarkdownPreview" },
+      --requires = { "zhaozg/vim-diagram", "aklt/plantuml-syntax" },
+    --}
     -- use {
       -- "jakewvincent/mkdnflow.nvim",
       -- config = function()
@@ -368,24 +351,24 @@ function M.setup()
     -- }
 
     -- Status line
-    -- use {
-      -- "nvim-lualine/lualine.nvim",
-      -- event = "VimEnter",
-      -- after = "nvim-treesitter",
-      -- config = function()
-        -- require("config.lualine").setup()
-      -- end,
-      -- wants = "nvim-web-devicons",
-    -- }
-    -- use {
-      -- "SmiteshP/nvim-gps",
-      -- requires = "nvim-treesitter/nvim-treesitter",
-      -- module = "nvim-gps",
-      -- wants = "nvim-treesitter",
-      -- config = function()
-        -- require("nvim-gps").setup()
-      -- end,
-    -- }
+     use {
+       "nvim-lualine/lualine.nvim",
+       event = "VimEnter",
+       after = "nvim-treesitter",
+       config = function()
+         require("config.lualine").setup()
+       end,
+       wants = "nvim-web-devicons",
+     }
+    use {
+      "SmiteshP/nvim-gps",
+      requires = "nvim-treesitter/nvim-treesitter",
+      module = "nvim-gps",
+      wants = "nvim-treesitter",
+      config = function()
+        require("nvim-gps").setup()
+      end,
+    }
     -- use {
       -- "b0o/incline.nvim",
       -- event = "BufReadPre",
@@ -496,16 +479,16 @@ function M.setup()
     end
 
     -- nvim-tree
-    use {
-      "kyazdani42/nvim-tree.lua",
-      opt = true,
-      wants = "nvim-web-devicons",
-      cmd = { "NvimTreeToggle", "NvimTreeClose" },
-      module = "nvim-tree",
-      config = function()
-        require("config.nvimtree").setup()
-      end,
-    }
+    --use {
+      --"kyazdani42/nvim-tree.lua",
+      --opt = true,
+      --wants = "nvim-web-devicons",
+      --cmd = { "NvimTreeToggle", "NvimTreeClose" },
+      --module = "nvim-tree",
+      --config = function()
+        --require("config.nvimtree").setup()
+      --end,
+    --}
 
     -- Buffer line
     --use {
@@ -549,39 +532,39 @@ function M.setup()
       --disable = not PLUGINS.coq.enabled,
     --}
 
-    use {
-      "hrsh7th/nvim-cmp",
-      event = "InsertEnter",
-      opt = true,
-      config = function()
-        require("config.cmp").setup()
-      end,
-      wants = { "LuaSnip" },
-      requires = {
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-        "hrsh7th/cmp-nvim-lua",
-        "ray-x/cmp-treesitter",
-        "hrsh7th/cmp-cmdline",
-        "saadparwaiz1/cmp_luasnip",
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-nvim-lsp-signature-help",
-        -- "onsails/lspkind-nvim",
-        -- "hrsh7th/cmp-calc",
-        -- "f3fora/cmp-spell",
-        -- "hrsh7th/cmp-emoji",
-        {
-          "L3MON4D3/LuaSnip",
-          wants = { "friendly-snippets", "vim-snippets" },
-          config = function()
-            require("config.snip").setup()
-          end,
-        },
-        "rafamadriz/friendly-snippets",
-        "honza/vim-snippets",
-      },
-      disable = not PLUGINS.nvim_cmp.enabled,
-    }
+    --use {
+      --"hrsh7th/nvim-cmp",
+      --event = "InsertEnter",
+      --opt = true,
+      --config = function()
+        --require("config.cmp").setup()
+      --end,
+      --wants = { "LuaSnip" },
+      --requires = {
+        --"hrsh7th/cmp-buffer",
+        --"hrsh7th/cmp-path",
+        --"hrsh7th/cmp-nvim-lua",
+        --"ray-x/cmp-treesitter",
+        --"hrsh7th/cmp-cmdline",
+        --"saadparwaiz1/cmp_luasnip",
+        --"hrsh7th/cmp-nvim-lsp",
+        --"hrsh7th/cmp-nvim-lsp-signature-help",
+        ---- "onsails/lspkind-nvim",
+        ---- "hrsh7th/cmp-calc",
+        ---- "f3fora/cmp-spell",
+        ---- "hrsh7th/cmp-emoji",
+        --{
+          --"L3MON4D3/LuaSnip",
+          --wants = { "friendly-snippets", "vim-snippets" },
+          --config = function()
+            --require("config.snip").setup()
+          --end,
+        --},
+        --"rafamadriz/friendly-snippets",
+        --"honza/vim-snippets",
+      --},
+      --disable = not PLUGINS.nvim_cmp.enabled,
+    --}
 
     ---- Auto pairs
     --use {
@@ -616,45 +599,45 @@ function M.setup()
     --}
 
     -- LSP
-    if PLUGINS.nvim_cmp.enabled then
-      use {
-        "neovim/nvim-lspconfig",
-        opt = true,
-        -- event = "VimEnter",
-        event = { "BufReadPre" },
-        -- keys = { "<leader>l", "<leader>f" },
-        -- wants = { "nvim-lsp-installer", "lsp_signature.nvim", "cmp-nvim-lsp" },
-        wants = {
-          "nvim-lsp-installer",
-          "cmp-nvim-lsp",
-          "lua-dev.nvim",
-          "vim-illuminate",
-          "null-ls.nvim",
-          "schemastore.nvim",
-          -- "nvim-lsp-ts-utils",
-          "typescript.nvim",
-        },
-        config = function()
-          require("config.lsp").setup()
-        end,
-        requires = {
-          "williamboman/nvim-lsp-installer",
-          "folke/lua-dev.nvim",
-          "RRethy/vim-illuminate",
-          "jose-elias-alvarez/null-ls.nvim",
-          {
-            "j-hui/fidget.nvim",
-            config = function()
-              require("fidget").setup {}
-            end,
-          },
-          "b0o/schemastore.nvim",
-          -- "jose-elias-alvarez/nvim-lsp-ts-utils",
-          "jose-elias-alvarez/typescript.nvim",
-          -- "ray-x/lsp_signature.nvim",
-        },
-      }
-    end
+    --if PLUGINS.nvim_cmp.enabled then
+      --use {
+        --"neovim/nvim-lspconfig",
+        --opt = true,
+        ---- event = "VimEnter",
+        --event = { "BufReadPre" },
+        ---- keys = { "<leader>l", "<leader>f" },
+        ---- wants = { "nvim-lsp-installer", "lsp_signature.nvim", "cmp-nvim-lsp" },
+        --wants = {
+          --"nvim-lsp-installer",
+          --"cmp-nvim-lsp",
+          --"lua-dev.nvim",
+          --"vim-illuminate",
+          --"null-ls.nvim",
+          --"schemastore.nvim",
+          ---- "nvim-lsp-ts-utils",
+          --"typescript.nvim",
+        --},
+        --config = function()
+          --require("config.lsp").setup()
+        --end,
+        --requires = {
+          --"williamboman/nvim-lsp-installer",
+          --"folke/lua-dev.nvim",
+          --"RRethy/vim-illuminate",
+          --"jose-elias-alvarez/null-ls.nvim",
+          --{
+            --"j-hui/fidget.nvim",
+            --config = function()
+              --require("fidget").setup {}
+            --end,
+          --},
+          --"b0o/schemastore.nvim",
+          ---- "jose-elias-alvarez/nvim-lsp-ts-utils",
+          --"jose-elias-alvarez/typescript.nvim",
+          ---- "ray-x/lsp_signature.nvim",
+        --},
+      --}
+    --end
 
     -- if PLUGINS.coq.enabled then
       -- use {
@@ -845,16 +828,16 @@ function M.setup()
     -- use { "github/copilot.vim", event = "InsertEnter" }
 
     -- Legendary
-    use {
-      "mrjones2014/legendary.nvim",
-      opt = true,
-      keys = { [[<C-p>]] },
-      wants = { "dressing.nvim" },
-      config = function()
-        require("config.legendary").setup()
-      end,
-      requires = { "stevearc/dressing.nvim" },
-    }
+    --use {
+      --"mrjones2014/legendary.nvim",
+      --opt = true,
+      --keys = { [[<C-p>]] },
+      --wants = { "dressing.nvim" },
+      --config = function()
+        --require("config.legendary").setup()
+      --end,
+      --requires = { "stevearc/dressing.nvim" },
+    --}
 
     -- Harpoon
     --use {
