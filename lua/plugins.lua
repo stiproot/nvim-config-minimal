@@ -48,13 +48,13 @@ function M.setup()
     use { "nvim-lua/plenary.nvim", module = "plenary" }
 
     -- Notification
-    use {
-      "rcarriga/nvim-notify",
-      event = "BufReadPre",
-      config = function()
-        require("config.notify").setup()
-      end,
-    }
+    --use {
+      --"rcarriga/nvim-notify",
+      --event = "BufReadPre",
+      --config = function()
+        --require("config.notify").setup()
+      --end,
+    --}
 
     -- Colorscheme
     use {
@@ -549,39 +549,39 @@ function M.setup()
       --disable = not PLUGINS.coq.enabled,
     --}
 
-    --use {
-      --"hrsh7th/nvim-cmp",
-      --event = "InsertEnter",
-      --opt = true,
-      --config = function()
-        --require("config.cmp").setup()
-      --end,
-      --wants = { "LuaSnip" },
-      --requires = {
-        --"hrsh7th/cmp-buffer",
-        --"hrsh7th/cmp-path",
-        --"hrsh7th/cmp-nvim-lua",
-        --"ray-x/cmp-treesitter",
-        --"hrsh7th/cmp-cmdline",
-        --"saadparwaiz1/cmp_luasnip",
-        --"hrsh7th/cmp-nvim-lsp",
-        --"hrsh7th/cmp-nvim-lsp-signature-help",
-        ---- "onsails/lspkind-nvim",
-        ---- "hrsh7th/cmp-calc",
-        ---- "f3fora/cmp-spell",
-        ---- "hrsh7th/cmp-emoji",
-        --{
-          --"L3MON4D3/LuaSnip",
-          --wants = { "friendly-snippets", "vim-snippets" },
-          --config = function()
-            --require("config.snip").setup()
-          --end,
-        --},
-        --"rafamadriz/friendly-snippets",
-        --"honza/vim-snippets",
-      --},
-      --disable = not PLUGINS.nvim_cmp.enabled,
-    --}
+    use {
+      "hrsh7th/nvim-cmp",
+      event = "InsertEnter",
+      opt = true,
+      config = function()
+        require("config.cmp").setup()
+      end,
+      wants = { "LuaSnip" },
+      requires = {
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+        "hrsh7th/cmp-nvim-lua",
+        "ray-x/cmp-treesitter",
+        "hrsh7th/cmp-cmdline",
+        "saadparwaiz1/cmp_luasnip",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-nvim-lsp-signature-help",
+        -- "onsails/lspkind-nvim",
+        -- "hrsh7th/cmp-calc",
+        -- "f3fora/cmp-spell",
+        -- "hrsh7th/cmp-emoji",
+        {
+          "L3MON4D3/LuaSnip",
+          wants = { "friendly-snippets", "vim-snippets" },
+          config = function()
+            require("config.snip").setup()
+          end,
+        },
+        "rafamadriz/friendly-snippets",
+        "honza/vim-snippets",
+      },
+      disable = not PLUGINS.nvim_cmp.enabled,
+    }
 
     ---- Auto pairs
     --use {
