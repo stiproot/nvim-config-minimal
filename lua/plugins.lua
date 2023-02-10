@@ -57,13 +57,14 @@ function M.setup()
     --}
 
     -- Colorscheme
-    use {
-      "folke/tokyonight.nvim",
-      config = function()
-        vim.cmd "colorscheme tokyonight"
-      end,
-      disable = true,
-    }
+    -- use {
+      --"folke/tokyonight.nvim",
+      --config = function()
+        --vim.cmd "colorscheme tokyonight"
+      --end,
+      --disable = true,
+    --}
+
     --use {
       --"sainnhe/everforest",
       --config = function()
