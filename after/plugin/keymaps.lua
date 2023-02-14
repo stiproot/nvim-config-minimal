@@ -33,10 +33,13 @@ keymap("v", "p", '"_dP', default_opts)
 -- Switch buffer
 -- keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", default_opts)
 -- keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", default_opts)
-keymap("n", "<S-h>", "<C-w>h", default_opts)
-keymap("n", "<S-l>", "<C-w>l", default_opts)
-keymap("n", "<S-k>", "<C-w>k", default_opts)
-keymap("n", "<S-j>", "<C-w>j", default_opts)
+keymap("n", "<S-h>", ":bn<CR>", default_opts)
+keymap("n", "<S-l>", ":bp<CR>", default_opts)
+
+keymap("n", "<C-h>", "<C-w>h", default_opts)
+keymap("n", "<C-l>", "<C-w>l", default_opts)
+keymap("n", "<C-k>", "<C-w>k", default_opts)
+keymap("n", "<C-j>", "<C-w>j", default_opts)
 
 -- keymap("n", "<C-l>", ":Lexplore<CR>", default_opts)
 
@@ -50,8 +53,8 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", default_opts)
 -- Resizing panes
 keymap("n", "<Left>", ":vertical resize +1<CR>", default_opts)
 keymap("n", "<Right>", ":vertical resize -1<CR>", default_opts)
-keymap("n", "<Up>", ":resize -1<CR>", default_opts)
-keymap("n", "<Down>", ":resize +1<CR>", default_opts)
+keymap("n", "<Up>", ":resize +1<CR>", default_opts)
+keymap("n", "<Down>", ":resize -1<CR>", default_opts)
 
 -- Insert blank line
 keymap("n", "]<Space>", "o<Esc>", default_opts)
