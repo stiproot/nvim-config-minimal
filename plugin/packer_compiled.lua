@@ -74,10 +74,10 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["fzf-lua"] = {
+  ["fzf.vim"] = {
     loaded = true,
-    path = "C:\\Users\\simonst\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\fzf-lua",
-    url = "https://github.com/ibhagwan/fzf-lua"
+    path = "C:\\Users\\simonst\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\fzf.vim",
+    url = "https://github.com/junegunn/fzf.vim"
   },
   neogit = {
     commands = { "Neogit" },
@@ -87,6 +87,25 @@ _G.packer_plugins = {
     only_cond = false,
     path = "C:\\Users\\simonst\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\neogit",
     url = "https://github.com/TimUntersberger/neogit"
+  },
+  ["nvim-lsp-installer"] = {
+    load_after = {
+      ["nvim-lspconfig"] = true
+    },
+    loaded = false,
+    needs_bufread = true,
+    path = "C:\\Users\\simonst\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\nvim-lsp-installer",
+    url = "https://github.com/williamboman/nvim-lsp-installer"
+  },
+  ["nvim-lspconfig"] = {
+    after = { "nvim-lsp-installer" },
+    config = { "\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15config.lsp\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "C:\\Users\\simonst\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig",
+    wants = { "nvim-lsp-installer" }
   },
   ["nvim-neoclip.lua"] = {
     load_after = {
@@ -237,7 +256,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-telescope/telescope-smart-history.nvim"
   },
   ["telescope.nvim"] = {
-    after = { "telescope-bookmarks.nvim", "project.nvim", "nvim-neoclip.lua", "popup.nvim", "telescope-fzf-native.nvim", "telescope-project.nvim", "telescope-repo.nvim", "telescope-file-browser.nvim", "telescope-dap.nvim", "telescope-frecency.nvim", "telescope-smart-history.nvim", "telescope-arecibo.nvim", "telescope-media-files.nvim" },
+    after = { "telescope-project.nvim", "telescope-bookmarks.nvim", "telescope-frecency.nvim", "popup.nvim", "telescope-fzf-native.nvim", "telescope-repo.nvim", "telescope-file-browser.nvim", "project.nvim", "telescope-dap.nvim", "nvim-neoclip.lua", "telescope-smart-history.nvim", "telescope-arecibo.nvim", "telescope-media-files.nvim" },
     commands = { "Telescope" },
     config = { "\27LJ\2\n>\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\21config.telescope\frequire\0" },
     keys = { { "", "<leader>f" }, { "", "<leader>p" }, { "", "<leader>z" } },
@@ -310,26 +329,12 @@ time([[Config for which-key.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.api.nvim_create_user_command, 'Neogit', function(cmdargs)
-          require('packer.load')({'neogit'}, { cmd = 'Neogit', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'neogit'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('Neogit ', 'cmdline')
-      end})
 pcall(vim.api.nvim_create_user_command, 'Telescope', function(cmdargs)
           require('packer.load')({'telescope.nvim'}, { cmd = 'Telescope', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
         {nargs = '*', range = true, bang = true, complete = function()
           require('packer.load')({'telescope.nvim'}, {}, _G.packer_plugins)
           return vim.fn.getcompletion('Telescope ', 'cmdline')
-      end})
-pcall(vim.api.nvim_create_user_command, 'TermExec', function(cmdargs)
-          require('packer.load')({'toggleterm.nvim'}, { cmd = 'TermExec', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'toggleterm.nvim'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('TermExec ', 'cmdline')
       end})
 pcall(vim.api.nvim_create_user_command, 'ToggleTerm', function(cmdargs)
           require('packer.load')({'toggleterm.nvim'}, { cmd = 'ToggleTerm', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
@@ -338,16 +343,37 @@ pcall(vim.api.nvim_create_user_command, 'ToggleTerm', function(cmdargs)
           require('packer.load')({'toggleterm.nvim'}, {}, _G.packer_plugins)
           return vim.fn.getcompletion('ToggleTerm ', 'cmdline')
       end})
+pcall(vim.api.nvim_create_user_command, 'TermExec', function(cmdargs)
+          require('packer.load')({'toggleterm.nvim'}, { cmd = 'TermExec', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'toggleterm.nvim'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('TermExec ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'Neogit', function(cmdargs)
+          require('packer.load')({'neogit'}, { cmd = 'Neogit', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'neogit'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('Neogit ', 'cmdline')
+      end})
 time([[Defining lazy-load commands]], false)
 
 -- Keymap lazy-loads
 time([[Defining lazy-load keymaps]], true)
-vim.cmd [[noremap <silent> <leader>f <cmd>lua require("packer.load")({'telescope.nvim'}, { keys = "<lt>leader>f", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> <C-\> <cmd>lua require("packer.load")({'toggleterm.nvim'}, { keys = "<lt>C-\\>", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[noremap <silent> <leader>p <cmd>lua require("packer.load")({'telescope.nvim'}, { keys = "<lt>leader>p", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> <leader>z <cmd>lua require("packer.load")({'telescope.nvim'}, { keys = "<lt>leader>z", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> <leader>f <cmd>lua require("packer.load")({'telescope.nvim'}, { keys = "<lt>leader>f", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> <leader>p <cmd>lua require("packer.load")({'telescope.nvim'}, { keys = "<lt>leader>p", prefix = "" }, _G.packer_plugins)<cr>]]
 time([[Defining lazy-load keymaps]], false)
 
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Event lazy-loads
+time([[Defining lazy-load event autocommands]], true)
+vim.cmd [[au BufReadPre * ++once lua require("packer.load")({'nvim-lspconfig'}, { event = "BufReadPre *" }, _G.packer_plugins)]]
+time([[Defining lazy-load event autocommands]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

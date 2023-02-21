@@ -57,12 +57,24 @@ function M.setup()
     use { "nvim-lua/plenary.nvim", module = "plenary" }
 
     -- use { "junegunn/fzf", run = "./install --all" }
-    -- use { "junegunn/fzf.vim" }
-
+    use { "junegunn/fzf.vim" }
     -- use {
     --  "ibhagwan/fzf-lua",
     --   requires = { "kyazdani42/nvim-web-devicons" },
     -- }
+
+    use {
+      "neovim/nvim-lspconfig",
+      opt = true,
+      event = "BufReadPre",
+      wants = { "nvim-lsp-installer" },
+      config = function()
+        require("config.lsp").setup()
+      end,
+      requires = {
+        "williamboman/nvim-lsp-installer",
+      },
+    }
 
     -- Notification
     --use {
