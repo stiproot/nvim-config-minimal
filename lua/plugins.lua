@@ -41,11 +41,28 @@ function M.setup()
   local function plugins(use)
     use { "wbthomason/packer.nvim" }
 
+    use {
+     "TimUntersberger/neogit",
+     cmd = "Neogit",
+     requires = "nvim-lua/plenary.nvim",
+       config = function()
+         require("config.neogit").setup()
+       end,
+    }
+
     -- Performance
-    use { "lewis6991/impatient.nvim" }
+    -- use { "lewis6991/impatient.nvim" }
 
     -- Load only when require
     use { "nvim-lua/plenary.nvim", module = "plenary" }
+
+    -- use { "junegunn/fzf", run = "./install --all" }
+    -- use { "junegunn/fzf.vim" }
+
+    -- use {
+    --  "ibhagwan/fzf-lua",
+    --   requires = { "kyazdani42/nvim-web-devicons" },
+    -- }
 
     -- Notification
     --use {
@@ -73,27 +90,27 @@ function M.setup()
       --end,
       --disable = false,
     --}
-    use {
-      "sainnhe/gruvbox-material",
-      config = function()
-        vim.cmd "colorscheme gruvbox-material"
-      end,
-      disable = true,
-    }
-    use {
-      "arcticicestudio/nord-vim",
-      config = function()
-        vim.cmd "colorscheme nord"
-      end,
-      disable = true,
-    }
-    use {
-      "norcalli/nvim-colorizer.lua",
-      cmd = "ColorizerToggle",
-      config = function()
-        require("colorizer").setup()
-      end,
-    }
+    -- use {
+      -- "sainnhe/gruvbox-material",
+      -- config = function()
+        -- vim.cmd "colorscheme gruvbox-material"
+      -- end,
+      -- disable = true,
+    -- }
+    -- use {
+    --  "arcticicestudio/nord-vim",
+    --  config = function()
+    --    vim.cmd "colorscheme nord"
+    --  end,
+    --  disable = true,
+    --}
+    -- use {
+    --  "norcalli/nvim-colorizer.lua",
+    --  cmd = "ColorizerToggle",
+    --  config = function()
+    --    require("colorizer").setup()
+    --  end,
+    --}
 
     -- Startup screen
     -- use {
@@ -155,13 +172,13 @@ function M.setup()
     -- }
 
     -- WhichKey
-    --use {
-      --"folke/which-key.nvim",
-      --event = "VimEnter",
-      --config = function()
-        --require("config.whichkey").setup()
-      --end,
-    --}
+    use {
+      "folke/which-key.nvim",
+      -- event = "VimEnter",
+      config = function()
+        require("config.whichkey").setup()
+      end,
+    }
 
     -- IndentLine
     -- use {
@@ -191,7 +208,7 @@ function M.setup()
     --}
 
     -- Better surround
-    use { "tpope/vim-surround", event = "BufReadPre" }
+    -- use { "tpope/vim-surround", event = "BufReadPre" }
     --use {
       --"Matt-A-Bennett/vim-surround-funk",
       --event = "BufReadPre",
@@ -244,14 +261,14 @@ function M.setup()
         --}
       --end,
     --}
-    use {
-      "karb94/neoscroll.nvim",
-      event = "BufReadPre",
-      config = function()
-        require("config.neoscroll").setup()
-      end,
-      disable = true,
-    }
+    -- use {
+    --   "karb94/neoscroll.nvim",
+    --   event = "BufReadPre",
+    --   config = function()
+    --     require("config.neoscroll").setup()
+    --   end,
+    --   disable = true,
+    --}
     -- use { "google/vim-searchindex", event = "BufReadPre" }
     -- use { "tyru/open-browser.vim", event = "BufReadPre" }
 
@@ -352,24 +369,36 @@ function M.setup()
     -- }
 
     -- Status line
-     use {
-       "nvim-lualine/lualine.nvim",
-       event = "VimEnter",
-       after = "nvim-treesitter",
-       config = function()
-         require("config.lualine").setup()
-       end,
-       wants = "nvim-web-devicons",
-     }
-    use {
-      "SmiteshP/nvim-gps",
-      requires = "nvim-treesitter/nvim-treesitter",
-      module = "nvim-gps",
-      wants = "nvim-treesitter",
-      config = function()
-        require("nvim-gps").setup()
-      end,
-    }
+    --use {
+      --"SmiteshP/nvim-gps",
+      --requires = "nvim-treesitter/nvim-treesitter",
+      --module = "nvim-gps",
+      --config = function()
+        --require("nvim-gps").setup()
+      --end,
+    --}
+
+    -- use {
+    --   "nvim-lualine/lualine.nvim",
+    --   requires = "SmiteshP/nvim-gps",
+    --   event = "VimEnter",
+    --   after = "nvim-treesitter",
+    --   config = function()
+    --     require("config.lualine").setup()
+    --   end,
+    --   wants = "nvim-web-devicons",
+    -- }
+
+    --use {
+      --"SmiteshP/nvim-gps",
+      --requires = "nvim-treesitter/nvim-treesitter",
+      --module = "nvim-gps",
+      --wants = "nvim-treesitter",
+      --config = function()
+        --require("nvim-gps").setup()
+      --end,
+    --}
+
     -- use {
       -- "b0o/incline.nvim",
       -- event = "BufReadPre",
@@ -380,22 +409,22 @@ function M.setup()
     -- }
 
     -- Treesitter
-    use {
-      "nvim-treesitter/nvim-treesitter",
-      opt = true,
-      event = "BufReadPre",
-      run = ":TSUpdate",
-      config = function()
-        require("config.treesitter").setup()
-      end,
-      requires = {
-        { "nvim-treesitter/nvim-treesitter-textobjects", event = "BufReadPre" },
-        { "windwp/nvim-ts-autotag", event = "InsertEnter" },
-        { "JoosepAlviste/nvim-ts-context-commentstring", event = "BufReadPre" },
-        { "nvim-treesitter/nvim-treesitter-context", event = "BufReadPre" },
-        { "p00f/nvim-ts-rainbow", event = "BufReadPre" },
-      },
-    }
+    -- use {
+    --  "nvim-treesitter/nvim-treesitter",
+    --  opt = true,
+    --  event = "BufReadPre",
+    --  run = ":TSUpdate",
+    --  config = function()
+    --    require("config.treesitter").setup()
+    --  end,
+    --  requires = {
+    --    { "nvim-treesitter/nvim-treesitter-textobjects", event = "BufReadPre" },
+    --    { "windwp/nvim-ts-autotag", event = "InsertEnter" },
+    --    { "JoosepAlviste/nvim-ts-context-commentstring", event = "BufReadPre" },
+    --    { "nvim-treesitter/nvim-treesitter-context", event = "BufReadPre" },
+    --    { "p00f/nvim-ts-rainbow", event = "BufReadPre" },
+    --  },
+    --}
 
     -- if PLUGINS.fzf_lua.enabled then
       -- -- FZF
@@ -874,8 +903,8 @@ function M.setup()
     --use { "nvim-pack/nvim-spectre", module = "spectre", keys = { "<leader>s" } }
 
     -- Performance
-    use { "dstein64/vim-startuptime", cmd = "StartupTime" }
-    use { "nathom/filetype.nvim" }
+    -- use { "dstein64/vim-startuptime", cmd = "StartupTime" }
+    -- use { "nathom/filetype.nvim" }
 
     -- Web
     --use {
