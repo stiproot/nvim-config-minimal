@@ -826,7 +826,7 @@ function M.setup()
     --}
 
     -- AI completion
-    -- use { "github/copilot.vim", event = "InsertEnter" }
+    use { "github/copilot.vim", event = "InsertEnter" }
 
     -- Legendary
     --use {
