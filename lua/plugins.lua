@@ -173,13 +173,13 @@ function M.setup()
     -- }
 
     -- Better icons
-    use {
-      "kyazdani42/nvim-web-devicons",
-      module = "nvim-web-devicons",
-      config = function()
-        require("nvim-web-devicons").setup { default = true }
-      end,
-    }
+--     use {
+--      "kyazdani42/nvim-web-devicons",
+ --     module = "nvim-web-devicons",
+ --     config = function()
+ --       require("nvim-web-devicons").setup { default = true }
+ --     end,
+ --   }
 
     -- Better Comment
     --use {
@@ -352,15 +352,16 @@ function M.setup()
     -- }
 
     -- Status line
-     use {
-       "nvim-lualine/lualine.nvim",
-       event = "VimEnter",
-       after = "nvim-treesitter",
-       config = function()
-         require("config.lualine").setup()
-       end,
-       wants = "nvim-web-devicons",
-     }
+     -- use {
+     --  "nvim-lualine/lualine.nvim",
+     --  event = "VimEnter",
+     --  after = "nvim-treesitter",
+     --  config = function()
+     --    require("config.lualine").setup()
+     --  end,
+     --  wants = "nvim-web-devicons",
+    -- }
+
     use {
       "SmiteshP/nvim-gps",
       requires = "nvim-treesitter/nvim-treesitter",
