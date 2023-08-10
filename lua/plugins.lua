@@ -56,12 +56,13 @@ function M.setup()
     -- Load only when require
     use { "nvim-lua/plenary.nvim", module = "plenary" }
 
-    -- use { "junegunn/fzf", run = "./install --all" }
+    -- for linux only!
+    use { "junegunn/fzf", run = "./install --all" }
     use { "junegunn/fzf.vim" }
-    -- use {
-    --  "ibhagwan/fzf-lua",
-    --   requires = { "kyazdani42/nvim-web-devicons" },
-    -- }
+    use {
+      "ibhagwan/fzf-lua",
+       requires = { "kyazdani42/nvim-web-devicons" },
+     }
 
     use {
       "neovim/nvim-lspconfig",
@@ -439,8 +440,9 @@ function M.setup()
     }
 
     -- if PLUGINS.fzf_lua.enabled then
-      -- -- FZF
-      -- use { "junegunn/fzf", run = "./install --all", event = "VimEnter", disable = true } -- You don't need to install this if you already have fzf installed
+      -- FZF
+      -- You don't need to install this if you already have fzf installed
+      -- use { "junegunn/fzf", run = "./install --all", event = "VimEnter", disable = true } 
       -- use { "junegunn/fzf.vim", event = "BufEnter", disable = true }
 
       -- -- FZF Lua
@@ -867,7 +869,7 @@ function M.setup()
     --}
 
     -- AI completion
-    -- use { "github/copilot.vim", event = "InsertEnter" }
+    use { "github/copilot.vim", event = "InsertEnter" }
 
     -- Legendary
     --use {
